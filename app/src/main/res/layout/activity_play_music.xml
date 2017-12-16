@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_play_music"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.santosh.godaarti.PlayMusic">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/fullImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ganeshgif1"
+        android:background="#ffffff"
+        android:layout_above="@+id/bottomBar"
+        />
+
+<RelativeLayout
+    android:id="@+id/bottomBar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_alignParentBottom="true"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:background="@color/colorPrimary"
+    >
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/stop"
+        android:src="@drawable/stop"/>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/play"
+        android:layout_centerInParent="true"
+        android:src="@drawable/playm"/>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/next"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/next"/>
+
+</RelativeLayout>
+</RelativeLayout>

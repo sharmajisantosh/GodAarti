@@ -1,6 +1,7 @@
 package com.example.santosh.godaarti;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.support.v7.app.ActionBar;
@@ -11,6 +12,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import com.example.santosh.godaarti.adapter.GridAdapter;
 import com.example.santosh.godaarti.helper.Utils;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     int NUM_OF_COLUMNS = 2;
     int GRID_PADDING = 5;
     private int columnWidth;
+    ImageView playImage;
 
 
     int[] images={R.drawable.ganesh1,R.drawable.ganesh1,R.drawable.ganesh1,R.drawable.ganesh1};
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         View v = inflator.inflate(R.layout.play_image, null);
         actionBar.setCustomView(v);
 
+        playImage= (ImageView) findViewById(R.id.play_image);
+
         gridview= (GridView) findViewById(R.id.gridView);
         utils = new Utils(this);
 
@@ -47,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
         GridAdapter gridadapter=new GridAdapter(images,columnWidth,this);
         gridview.setAdapter(gridadapter);
+
+        playImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this, PlayMusic.class);
+                startActivity(i);
+            }
+        });
 
     }
     private void InitilizeGridLayout() {
