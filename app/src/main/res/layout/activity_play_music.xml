@@ -36,6 +36,12 @@
         android:id="@+id/play"
         android:layout_centerInParent="true"
         android:src="@drawable/playm"/>
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/pause"
+        android:layout_centerInParent="true"
+        android:src="@drawable/pause"/>
 
     <ImageView
         android:layout_width="80dp"
