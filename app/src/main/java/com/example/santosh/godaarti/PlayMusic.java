@@ -1,6 +1,7 @@
 package com.example.santosh.godaarti;
 
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class PlayMusic extends AppCompatActivity {
     ImageView playImage, stopImage, nextImage, pauseImage;
     GifImageView fullImage;
     int[] soundIDs = {R.raw.a1ga,R.raw.b2gc,R.raw.c3la,R.raw.d4lc,R.raw.e5ha,R.raw.f6hc,R.raw.g7hbb};
+    PlayMedia playAudio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class PlayMusic extends AppCompatActivity {
             }
         };
         handler.postDelayed(runnable, 2000);
-        final PlayMedia playAudio = new PlayMedia(this,soundIDs);
+        playAudio = new PlayMedia(this,soundIDs);
         playAudio.execute();
 
         nextImage.setOnClickListener(new View.OnClickListener() {
@@ -92,4 +94,10 @@ public class PlayMusic extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        playAudio.stopMediaFile();
+
+    }
 }

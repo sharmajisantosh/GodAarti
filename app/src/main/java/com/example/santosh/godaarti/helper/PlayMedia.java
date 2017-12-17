@@ -42,13 +42,14 @@ public class PlayMedia extends AsyncTask<Void, Void, Void> {
         });
     }
 
+
     public void nextMediaFile(){
 
         mediaPlayer.release();
         if(idx<soundIDs.length){
-        mediaPlayer=MediaPlayer.create(context,soundIDs[idx]);
-        mediaPlayer.start();
-        idx++;
+            mediaPlayer=MediaPlayer.create(context,soundIDs[idx]);
+            mediaPlayer.start();
+            idx++;
         }else {
             Toast.makeText(context, "Song List ends. Press next again", Toast.LENGTH_SHORT).show();
             idx=0;
@@ -93,9 +94,9 @@ public class PlayMedia extends AsyncTask<Void, Void, Void> {
     }
 
     public void stopMediaFile(){
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            idx=0;
+        mediaPlayer.stop();
+        mediaPlayer.release();
+        idx=0;
 
     }
 
@@ -112,5 +113,12 @@ public class PlayMedia extends AsyncTask<Void, Void, Void> {
         }
 
         return null;
+    }
+
+
+    @Override
+    protected void onCancelled() {
+        Toast.makeText(context, "On Cancelled", Toast.LENGTH_SHORT).show();
+        super.onCancelled();
     }
 }
